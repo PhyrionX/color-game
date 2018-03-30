@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as Enzyme from 'enzyme';
 import * as ReactFifteenAdapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer';
-import {Score} from './score';
+import {Score} from '../src/components/score';
 
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Score />', () => {

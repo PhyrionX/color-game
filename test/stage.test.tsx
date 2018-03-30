@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom';
 import * as Enzyme from 'enzyme';
 import * as ReactFifteenAdapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer';
-import {Stage} from './stage';
-import {Timer} from './timer';
+import {Stage} from '../src/components/stage';
+import {Timer} from '../src/components/timer';
 
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Stage />', () => {

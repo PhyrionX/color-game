@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom';
 import * as Enzyme from 'enzyme';
 import * as ReactFifteenAdapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer';
-import {Robot} from './robot';
-import {Stage} from './stage';
+import {Robot} from '../src/components/robot';
+import {Stage} from '../src/components/stage';
 jest.useFakeTimers();
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Robot />', () => {

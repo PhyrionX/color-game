@@ -3,10 +3,10 @@ import * as ReactDOM from 'react-dom';
 import * as Enzyme from 'enzyme';
 import * as ReactFifteenAdapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer';
-import {App} from './app';
-import {Loading} from './loading';
-import {MainMenu} from './mainMenu';
-import {Game} from './game';
+import {App} from '../src/components/app';
+import {Loading} from '../src/components/loading';
+import {MainMenu} from '../src/components/mainMenu';
+import {Game} from '../src/components/game';
 
 jest.useFakeTimers();
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })

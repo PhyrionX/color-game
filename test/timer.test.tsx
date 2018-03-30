@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as Enzyme from 'enzyme';
 import * as ReactFifteenAdapter from 'enzyme-adapter-react-15'
 import renderer from 'react-test-renderer';
-import {Timer} from './timer';
+import {Timer} from '../src/components/timer';
 
 
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
