@@ -1,5 +1,6 @@
 .vscode
 .DS_STORE
+coverage
 node_modules
 .module-cache
 *.log*

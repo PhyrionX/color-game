@@ -13,10 +13,11 @@ export class Robot extends React.Component<RobotProps, {}> {
   }
   
   componentWillMount() {
+    //console.log(document.getElementById("startGameButton"))
     setTimeout(() => {
-      if (this.props.lvl === 0) {
-        console.log("a")
-        document.getElementById("startGameButton").click();
+      let buttonStart = document.getElementById("startGameButton");
+      if (this.props.lvl === 0 && buttonStart !== null) {
+        buttonStart.click();
       }
     }, 3000);
   }
@@ -24,19 +25,21 @@ export class Robot extends React.Component<RobotProps, {}> {
   shouldComponentUpdate(nexrProps){
     return nexrProps.lvl != this.props.lvl
   }
+
   componentDidUpdate () {
     let time = dificult[this.props.dificult].time;
-    console.log(time);
+
     setTimeout(() => {
-      if (this.props.lvl > 0) {
-        let solutionColor = document.getElementById("questionLabel").style.color;
+      let questionLabel = document.getElementById("questionLabel");
+      if (this.props.lvl > 0 && questionLabel != null) {
+        let solutionColor = questionLabel.style.color;
         let buttons = document.getElementsByClassName("solutionButton");
         let cont = true;
-        
         
         for (let i = 0;  i < buttons.length && cont; i++) {
           let button: any;
           button = buttons[i];
+          
           if (button.innerText.toLowerCase() === solutionColor.toLocaleLowerCase()) {
             button.click();
             cont = false;

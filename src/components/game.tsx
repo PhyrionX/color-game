@@ -41,9 +41,9 @@ export class Game extends React.Component<GameProps, GameState> {
   }
 
   handleClick(e: any, time: number) {
-    console.log(time)
-    if (e.target.dataset.key != undefined) {
-      console.log(e.target.dataset.key);
+    if (e.target.dataset.key != undefined &&
+        this.state.lvl > confApp.INSTRUCTION_STAGE &&
+        this.state.lvl <= confApp.STAGES) {
       let lvl = this.state.lvl + 1;
       let score = this.state.score;
       let answers = this.state.answers;

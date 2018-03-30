@@ -37,8 +37,6 @@ export function getQuestion(dificultselected: string) {
 }
 
 const getButtons = (colorSelected, colorSecundary, colorArr) => {
-  console.log(colorSelected);
-  console.log(colorSecundary);
   let result = Math.floor(Math.random() * 2);
   if (result === 0) {
     return <div className="buttonsDiv">

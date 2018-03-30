@@ -14,11 +14,6 @@ interface TimerProps {
 }
 
 export class Timer extends React.Component<TimerProps, TimerState> {
-  constructor() {
-    super();
-    
-
-  }
 
   componentWillMount() {
     this.state = {

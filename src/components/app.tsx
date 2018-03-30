@@ -24,17 +24,14 @@ export class App extends React.Component<AppProps, AppState> {
       robot: false,
       dificult: "normal"
     }
-    console.log(this.state)
   }
 
   componentDidMount() {
-    this.startGame = this.startGame.bind(this);
     setTimeout(() => {
       this.setState({
         loading: false,
         index: true
       })
-      console.log(this.state)
     }, 1000)
   }
 
@@ -52,13 +49,11 @@ export class App extends React.Component<AppProps, AppState> {
   }
 
   public startGame(robot: boolean) {
-    console.log(robot);
     this.setState({
       index: false,
       game: true,
       robot
     });
-    console.log("Start!!")
   }
 
   public render() {
