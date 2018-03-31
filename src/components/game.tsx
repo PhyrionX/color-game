@@ -119,10 +119,10 @@ export class Game extends React.Component<GameProps, GameState> {
     }
     return (
       <div className="page" id="game">
-        <div>
+        <div className="titleStages">
           {/* This header showns in question to know de current question*/}
           {this.state.lvl == confApp.INSTRUCTION_STAGE ? 
-              "" : this.state.lvl > confApp.INSTRUCTION_STAGE && this.state.lvl <= confApp.STAGES ? `Stage ${this.state.lvl}` : ''}
+              "" : this.state.lvl > confApp.INSTRUCTION_STAGE && this.state.lvl <= confApp.STAGES ? `Question ${this.state.lvl}` : ''}
         </div>
         {/* If robot props is active, active the robot */}
         {this.props.robot && this.state.lvl <= confApp.STAGES ? <Robot lvl={this.state.lvl} difficult={this.props.difficult}/>: null}

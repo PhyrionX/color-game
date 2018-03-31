@@ -74,9 +74,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
     /* get percent to progress bar */
     const getProgress = () => this.state.time / (difficult[this.props.difficult].time / 100);
     return(
-      <div>
         <progress value={getProgress()} max="100"></progress>
-      </div>
     )
   }
 }

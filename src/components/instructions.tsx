@@ -23,6 +23,7 @@ export const Instructions: React.StatelessComponent<InstructionsProps> = (props)
         <div>
           <span>Instructions: </span> There are ten screens, and on each screen,
             you are given a word and two buttons to choose from. Select the Color of the word, not the word!
+            Score depends on the right questions and the time to answer.
           <br />
           <span>Difficult: </span>{`Selected [${props.difficult}] ${difficult[props.difficult].time / 1000} seconds per screen and ${difficult[props.difficult].colors} diferents colors`}
           <div className="message">{props.robot ? 'Now play the robot, don\'t touch anything' : 'Are you ready human?'}</div>
