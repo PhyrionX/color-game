@@ -1,6 +1,13 @@
 import * as React from 'react';
 import {getQuestion, difficult} from '../tool';
 
+/**
+ * By Rubén Gabás
+ * timer.tsx
+ * 
+ * This component is i timer with a timeout 
+ * depending on the difficulty
+ */
 interface TimerState {
   time: number;
   timer: any;
@@ -9,12 +16,15 @@ interface TimerState {
 interface TimerProps {
   lvl: number;
   difficult: string;
-  onRef: (e: any) => void;
-  timeoutAnswer: () => void;
+  onRef: (e: any) => void; /* set a reference so that the parent can have access */
+  timeoutAnswer: () => void; /* when the time reaches 0 */
 }
 
 export class Timer extends React.Component<TimerProps, TimerState> {
 
+  /**
+   * Set the total time of timer depending of difficult
+   */
   componentWillMount() {
     this.state = {
       time: difficult[this.props.difficult].time,
@@ -22,6 +32,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
     }
   }
 
+  /* Set reference and interval */
   componentDidMount() {
     this.props.onRef(this);
     this.setState({
@@ -29,6 +40,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
     });
   }
 
+  /* Reset the time and the interval */
   componentWillReceiveProps(nextProps) {
     if (this.props.lvl != nextProps.lvl) {
       clearInterval(this.state.timer)
@@ -43,6 +55,10 @@ export class Timer extends React.Component<TimerProps, TimerState> {
     clearInterval(this.state.timer);
   } 
 
+  /** 
+   * every 50ms subtraction 50 to time if time reaches 0 
+   * call props timeout answer
+   */
   handleTime() {
     let time = this.state.time - 50;
     
@@ -55,6 +71,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
   }
 
   render() {
+    /* get percent to progress bar */
     const getProgress = () => this.state.time / (difficult[this.props.difficult].time / 100);
     return(
       <div>
