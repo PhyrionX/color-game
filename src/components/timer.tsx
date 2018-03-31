@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {getQuestion, dificult} from '../tool';
+import {getQuestion, difficult} from '../tool';
 
 interface TimerState {
   time: number;
@@ -8,7 +8,7 @@ interface TimerState {
 
 interface TimerProps {
   lvl: number;
-  dificult: string;
+  difficult: string;
   onRef: (e: any) => void;
   timeoutAnswer: () => void;
 }
@@ -17,7 +17,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
 
   componentWillMount() {
     this.state = {
-      time: dificult[this.props.dificult].time,
+      time: difficult[this.props.difficult].time,
       timer: null,
     }
   }
@@ -33,7 +33,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
     if (this.props.lvl != nextProps.lvl) {
       clearInterval(this.state.timer)
       this.setState({
-        time:  dificult[this.props.dificult].time,
+        time:  difficult[this.props.difficult].time,
         timer: setInterval(() => this.handleTime(), 50)
       })
     }
@@ -55,7 +55,7 @@ export class Timer extends React.Component<TimerProps, TimerState> {
   }
 
   render() {
-    const getProgress = () => this.state.time / (dificult[this.props.dificult].time / 100);
+    const getProgress = () => this.state.time / (difficult[this.props.difficult].time / 100);
     return(
       <div>
         <progress value={getProgress()} max="100"></progress>

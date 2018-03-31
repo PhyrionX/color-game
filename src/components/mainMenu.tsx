@@ -1,9 +1,16 @@
 import * as React from "react";
 
+/**
+ * By Rubén Gabás
+ * mainMenu.tsx
+ * 
+ * This stateless component shown if props index is true
+ * This html have a difficulty selector and two buttons to choose the mode
+ */
 export interface MainMenuProps {
   index: boolean;
-  dificult: string;
-  chooseDificult: (e: any) => void;
+  difficult: string;
+  choosedifficult: (e: any) => void;
   startGame: (robot: boolean) => void;
 }
 
@@ -13,11 +20,11 @@ export const MainMenu: React.StatelessComponent<MainMenuProps> = (props) => {
     <div className={`page ${props.index ? '' : 'hide'}`}>
       <img className="title" src="assets/img/color-game-logo.png" width={301}/>
       <br />
-      <span className="secondaryTitles">Choose a dificult:</span>  
-      <div className="dificultChooser" onClick={props.chooseDificult}>
-        <div className={props.dificult == "easy" ? 'active' : ''} data-dificult="easy">easy</div>
-        <div className={props.dificult == "normal" ? 'active' : ''} data-dificult="normal">normal</div>
-        <div className={props.dificult == "hard" ? 'active' : ''} data-dificult="hard">hard</div>
+      <span className="secondaryTitles">Choose difficulty:</span>  
+      <div className="difficultChooser" onClick={props.choosedifficult}>
+        <div className={props.difficult == "easy" ? 'active' : ''} data-difficult="easy">easy</div>
+        <div className={props.difficult == "normal" ? 'active' : ''} data-difficult="normal">normal</div>
+        <div className={props.difficult == "hard" ? 'active' : ''} data-difficult="hard">hard</div>
       </div>
       <br/>
       <span className="secondaryTitles">Select mode:</span> 

@@ -8,19 +8,19 @@ import {Instructions} from '../src/components/instructions';
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Instructions />', () => {
   it('renders without crashing', () => {
-    const wrapper = Enzyme.shallow(<Instructions dificult={"easy"} startGame={() => console.log("a")}/>);
+    const wrapper = Enzyme.shallow(<Instructions difficult={"easy"} robot={false} startGame={() => console.log("a")}/>);
     expect(wrapper.find('div.instructionsDiv').length).toBe(1);
   });
 
   it('Score props', () => {
-    const wrapper = Enzyme.mount(<Instructions dificult={"easy"} startGame={() => console.log("a")}/>);
-    expect(wrapper.props().dificult).toBe("easy");
-    wrapper.setProps({dificult: "normal"});
-    expect(wrapper.props().dificult).toBe("normal");
+    const wrapper = Enzyme.mount(<Instructions difficult={"easy"} robot={false} startGame={() => console.log("a")}/>);
+    expect(wrapper.props().difficult).toBe("easy");
+    wrapper.setProps({difficult: "normal"});
+    expect(wrapper.props().difficult).toBe("normal");
   })
 
   it('Click button back', () => {
-    const wrapper = Enzyme.mount(<Instructions dificult={"easy"} startGame={() => {
+    const wrapper = Enzyme.mount(<Instructions difficult={"easy"} robot={false} startGame={() => {
       expect(wrapper).toBeTruthy()
     }}/>);
     wrapper.find('button').simulate('click');

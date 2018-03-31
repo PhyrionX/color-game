@@ -48,7 +48,7 @@ describe('<App />', () => {
   });
 
 
-  it('choose dificult easy', () => {
+  it('choose difficult easy', () => {
     let wrapper: any;
     wrapper = Enzyme.mount(<App />);
     
@@ -56,18 +56,18 @@ describe('<App />', () => {
     let eTemp = {
       target: {
         dataset: {
-          dificult: "easy"
+          difficult: "easy"
         }
       }
     }
 
     jest.runAllTimers();
 
-    wrapper.instance().chooseDificult(eTemp)
-    expect(wrapper.state().dificult).toBe("easy")
+    wrapper.instance().choosedifficult(eTemp)
+    expect(wrapper.state().difficult).toBe("easy")
   });
 
-  it('choose dificult normal', () => {
+  it('choose difficult normal', () => {
     let wrapper: any;
     wrapper = Enzyme.mount(<App />);
     
@@ -75,18 +75,18 @@ describe('<App />', () => {
     let eTemp = {
       target: {
         dataset: {
-          dificult: "normal"
+          difficult: "normal"
         }
       }
     }
 
     jest.runAllTimers();
 
-    wrapper.instance().chooseDificult(eTemp)
-    expect(wrapper.state().dificult).toBe("normal")
+    wrapper.instance().choosedifficult(eTemp)
+    expect(wrapper.state().difficult).toBe("normal")
   });
 
-  it('choose dificult hard', () => {
+  it('choose difficult hard', () => {
     let wrapper: any;
     wrapper = Enzyme.mount(<App />);
     
@@ -94,15 +94,15 @@ describe('<App />', () => {
     let eTemp = {
       target: {
         dataset: {
-          dificult: "hard"
+          difficult: "hard"
         }
       }
     }
 
     jest.runAllTimers();
 
-    wrapper.instance().chooseDificult(eTemp)
-    expect(wrapper.state().dificult).toBe("hard")
+    wrapper.instance().choosedifficult(eTemp)
+    expect(wrapper.state().difficult).toBe("hard")
   });
 
   it('go to index state', () => {

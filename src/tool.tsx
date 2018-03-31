@@ -8,7 +8,7 @@ export const confApp = {
   INSTRUCTION_STAGE: 0
 }
 
-export const dificult = {
+export const difficult = {
   easy: {
     time: 6000,
     colors: 3
@@ -23,8 +23,8 @@ export const dificult = {
   }
 }
 
-export function getQuestion(dificultselected: string) {
-  let colorTemp = _.take(colors, dificult[dificultselected].colors);
+export function getQuestion(difficultselected: string) {
+  let colorTemp = _.take(colors, difficult[difficultselected].colors);
   let colorSelected = _.sample(colorTemp);
   let colorSecundary = _.sample(_.pull(_.clone(colorTemp), colorSelected));
 

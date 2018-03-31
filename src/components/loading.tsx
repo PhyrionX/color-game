@@ -1,5 +1,11 @@
 import * as React from "react";
 
+/**
+ * By Rubén Gabás
+ * loading.tsx
+ * 
+ * This stateless component shown if props loading is true
+ */
 export interface LoadingProps {
   loading: boolean;
 }

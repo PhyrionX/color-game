@@ -6,7 +6,7 @@ interface StageProps {
   lvl: number;
   handleClick: (e: any, time: number) => void;
   timeoutAnswer: () => void;
-  dificult: string;
+  difficult: string;
 }
 
 interface StageState {
@@ -35,9 +35,9 @@ export class Stage extends React.Component<StageProps, StageState> {
             lvl={this.props.lvl} 
             onRef={ref => {this.setState({child: ref})}}
             timeoutAnswer={this.props.timeoutAnswer}
-            dificult={this.props.dificult}
+            difficult={this.props.difficult}
             />
-          {getQuestion(this.props.dificult)}
+          {getQuestion(this.props.difficult)}
         </div>
       } else {
         return null;

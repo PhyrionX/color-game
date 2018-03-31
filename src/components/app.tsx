@@ -2,30 +2,40 @@ import * as React from "react";
 import {Game} from "./game";
 import {Loading} from "./loading";
 import {MainMenu} from "./mainMenu";
-interface AppProps {
 
-}
+/**
+ * By Rubén Gabás
+ * app.tsx
+ * 
+ * This is the main component of the game, this component
+ * have the state of the main screens of the game.
+ * 
+ * Have Loading component is the component with loading effect
+ * Main menu component is the main screen to choose difficult and mode
+ * Game component is the game with instrucctions, stages and final score 
+ */
 
 interface AppState {
   loading: boolean;
   index: boolean;
   game: boolean;
   robot: boolean;
-  dificult: string;
+  difficult: string;
 }
 
-export class App extends React.Component<AppProps, AppState> {
+export class App extends React.Component<{}, AppState> {
   constructor() {
     super();
     this.state = {
-      loading: true,
-      index: false,
-      game: false,
-      robot: false,
-      dificult: "normal"
+      loading: true,  /* This state is true to init the game */
+      index: false,   /* Index is true if in the main screen */
+      game: false,    /* Game is true if you press in human or robot button to start game*/
+      robot: false,   /* Robot true active the robot mode */
+      difficult: "normal" /* difficult can set 'easy' 'normal' or 'hard' */
     }
   }
 
+  /* This function in init wait one second and go to index screen */
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -35,12 +45,16 @@ export class App extends React.Component<AppProps, AppState> {
     }, 1000)
   }
 
-  public chooseDificult(e: any) {
-    if (e.target.dataset.dificult != undefined) {
-      this.setState({dificult: e.target.dataset.dificult})
+  /* This function changes the status of the difficulty based on the event received */
+  public choosedifficult(e: any) {
+    if (e.target.dataset.difficult != undefined) {
+      this.setState({difficult: e.target.dataset.difficult})
     }
   }
 
+  /** 
+   * Set the index state to see the main menu
+   */
   public indexState() {
     this.setState({
       index: true,
@@ -48,6 +62,11 @@ export class App extends React.Component<AppProps, AppState> {
     })
   }
 
+  /**
+   * Init the game and set robot active with boolean robot var
+   * 
+   * @param robot 
+   */
   public startGame(robot: boolean) {
     this.setState({
       index: false,
@@ -65,11 +84,11 @@ export class App extends React.Component<AppProps, AppState> {
           />
         <MainMenu 
           index={this.state.index}
-          dificult={this.state.dificult}
-          chooseDificult={this.chooseDificult.bind(this)}
+          difficult={this.state.difficult}
+          choosedifficult={this.choosedifficult.bind(this)}
           startGame={this.startGame.bind(this)}
           />
-        {game ? <Game indexState={this.indexState.bind(this)} robot={this.state.robot} dificult={this.state.dificult}/> : null}
+        {game ? <Game indexState={this.indexState.bind(this)} robot={this.state.robot} difficult={this.state.difficult}/> : null}
       </div>
     )
   }

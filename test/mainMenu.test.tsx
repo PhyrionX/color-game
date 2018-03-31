@@ -10,10 +10,10 @@ describe('<MainMenu />', () => {
   it('renders without crashing', () => {
     const wrapper = Enzyme.shallow(
     <MainMenu 
-      dificult={"easy"} 
+      difficult={"easy"} 
       index={true} 
       startGame={(robot: boolean) => console.log("a")} 
-      chooseDificult={(e: any) => {
+      choosedifficult={(e: any) => {
 
     }}/>);
     expect(wrapper.find('div').length).toBeGreaterThan(1);
@@ -22,12 +22,12 @@ describe('<MainMenu />', () => {
   it('renders without easy', () => {
     const wrapper = Enzyme.shallow(
     <MainMenu 
-      dificult={"normal"} 
+      difficult={"normal"} 
       index={true} 
       startGame={(robot: boolean) => console.log("a")} 
-      chooseDificult={(e: any) => {
+      choosedifficult={(e: any) => {
       expect(wrapper).toBeTruthy();
     }}/>);
-    wrapper.find('div.dificultChooser').simulate('click');
+    wrapper.find('div.difficultChooser').simulate('click');
   });
 })

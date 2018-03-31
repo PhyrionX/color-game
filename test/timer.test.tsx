@@ -10,14 +10,14 @@ Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Timer />', () => {
   it('renders without crashing', () => {
     const result = Enzyme.shallow(
-      <Timer lvl={1} dificult={"easy"} timeoutAnswer={() => {}} onRef={() => {}}/>
+      <Timer lvl={1} difficult={"easy"} timeoutAnswer={() => {}} onRef={() => {}}/>
     )
     expect(result).toBeTruthy();
   });
 
   it('render progress ', () => {
     const result = Enzyme.mount(
-      <Timer lvl={1} dificult={"easy"} timeoutAnswer={() => {}} onRef={() => {}}/>
+      <Timer lvl={1} difficult={"easy"} timeoutAnswer={() => {}} onRef={() => {}}/>
     )
 
     
@@ -30,7 +30,7 @@ describe('<Timer />', () => {
     let timeEasy = 6000;
     let wrapper: any;
     wrapper = Enzyme.shallow(
-      <Timer lvl={1} dificult={"easy"} timeoutAnswer={() => {
+      <Timer lvl={1} difficult={"easy"} timeoutAnswer={() => {
         expect(wrapper.state().time).toBe(0);
       }} onRef={() => {}}/>
     )
@@ -46,7 +46,7 @@ describe('<Timer />', () => {
     let timeEasy = 4000;
     let wrapper: any;
     wrapper = Enzyme.shallow(
-      <Timer lvl={1} dificult={"easy"} timeoutAnswer={() => {
+      <Timer lvl={1} difficult={"easy"} timeoutAnswer={() => {
         expect(wrapper.state().time).toBe(6000);
       }} onRef={() => {}}/>
     )
@@ -66,7 +66,7 @@ describe('<Timer />', () => {
     let timeEasy = 6000;
     let wrapper: any;
     wrapper = Enzyme.mount(
-      <Timer lvl={1} dificult={"easy"} timeoutAnswer={() => {
+      <Timer lvl={1} difficult={"easy"} timeoutAnswer={() => {
       }} onRef={() => {}}/>    )
 
     expect(wrapper.props().lvl).toEqual(1);

@@ -5,16 +5,32 @@ import {Instructions} from "./instructions";
 import {Score} from "./score";
 import {confApp} from "../tool";
 
+/**
+ * By Rubén Gabás
+ * game.tsx
+ * 
+ * This component controls all game states.
+ * The game states can be: 
+ * 
+ * INSTRUCTION_STAGE, is lvl 0, here is explained the operation of 
+ * the game and the selected difficulty.
+ * 
+ * STAGES. is lvl 1 to lvl 10, here are the 10 questions that must be answered
+ * 
+ * FINAL_STATE. is lvl 11, here is the result obtained based 
+ * on the questions answered and the time taken
+ */
+
+
 interface GameProps {
-  indexState: () => void;
-  robot: boolean;
-  dificult: string;
+  indexState: () => void; /* Function to return to the main menu */
+  robot: boolean;         /* Receive if robot is active */
+  difficult: string;       /* difficult selected */
 }
 
 interface GameState {
   lvl: number;
   score: number;
-  interval: any;
   answers: number;
 }
 
@@ -22,24 +38,44 @@ export class Game extends React.Component<GameProps, GameState> {
   constructor() {
     super();
     this.state = {
-      lvl: 0,
-      score: 0,
-      interval: null,
-      answers: 0
+      lvl: 0,     /* Is current lvl of game, the initial state 0 is INSTRUCTION_STAGE*/
+      score: 0,   /* It is the score obtained */
+      answers: 0  /* It is the number of questions answered correctly */
     }
   }
 
+  /**
+   * Go to the first stage, first question, start the game
+   */
   startGame() {
     this.setState({
       lvl: 1
     })
   }
 
+  /**
+   * When a question is not answered in time, 
+   * a level is added but no score 
+   */
   timeoutAnswer() {
     let lvl = this.state.lvl + 1;
     this.setState({lvl});
   }
 
+  /**
+   * This handler is invoked when you click on one of the answers
+   * the parameters are e and time: 
+   * e is event of click in the element.
+   * and time is is the remaining time to solve the question
+   * 
+   * This function controls that the event with the dataset.key is defined since 
+   * it is the one that knows if the answer is correct or not, if it is correct, 
+   * 1000 for remaining time is added to score, plus one is added to answers and lvl.
+   * 
+   * If the answer is not correct, only add one level and no score
+   * @param e 
+   * @param time 
+   */
   handleClick(e: any, time: number) {
     if (e.target.dataset.key != undefined &&
         this.state.lvl > confApp.INSTRUCTION_STAGE &&
@@ -56,21 +92,25 @@ export class Game extends React.Component<GameProps, GameState> {
   }
 
   public render() {
+    /**
+     * This controls the states of game
+     */
     const getGameState = () => {
       if (this.state.lvl === confApp.INSTRUCTION_STAGE) {
         return <Instructions 
-          dificult={this.props.dificult}
+          difficult={this.props.difficult}
           startGame={this.startGame.bind(this)}
+          robot={this.props.robot}
           />
       } else if (this.state.lvl >  confApp.INSTRUCTION_STAGE && this.state.lvl <= confApp.STAGES) {
         return <Stage 
           lvl={this.state.lvl} 
           handleClick={this.handleClick.bind(this)}
           timeoutAnswer={this.timeoutAnswer.bind(this)}
-          dificult={this.props.dificult}/>
+          difficult={this.props.difficult}/>
       } else if (this.state.lvl >  confApp.STAGES) {
         return <Score 
-          dificult={this.props.dificult}
+          difficult={this.props.difficult}
           score={this.state.score}
           answers={this.state.answers}
           indexState={this.props.indexState}
@@ -79,9 +119,13 @@ export class Game extends React.Component<GameProps, GameState> {
     }
     return (
       <div className="page" id="game">
-        <div>{this.state.lvl == confApp.INSTRUCTION_STAGE ? 
-            "" : this.state.lvl > confApp.INSTRUCTION_STAGE && this.state.lvl <= confApp.STAGES ? `Stage ${this.state.lvl}` : ''}</div>
-        {this.props.robot && this.state.lvl <= confApp.STAGES ? <Robot lvl={this.state.lvl} dificult={this.props.dificult}/>: null}
+        <div>
+          {/* This header showns in question to know de current question*/}
+          {this.state.lvl == confApp.INSTRUCTION_STAGE ? 
+              "" : this.state.lvl > confApp.INSTRUCTION_STAGE && this.state.lvl <= confApp.STAGES ? `Stage ${this.state.lvl}` : ''}
+        </div>
+        {/* If robot props is active, active the robot */}
+        {this.props.robot && this.state.lvl <= confApp.STAGES ? <Robot lvl={this.state.lvl} difficult={this.props.difficult}/>: null}
         {getGameState()}
       </div>
     ) 

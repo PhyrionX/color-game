@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Robot />', () => {
   it('renders without crashing', () => {
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>
+      <Robot lvl={0} difficult={"hard"}/>
     )
 
     expect(result).toBeTruthy();
@@ -19,7 +19,7 @@ describe('<Robot />', () => {
 
   it('render correctly', () => {
     const wrapper = Enzyme.shallow(
-      <Robot lvl={0} dificult={"hard"}/>
+      <Robot lvl={0} difficult={"hard"}/>
     )
     expect(wrapper.find("div.overlay").length).toBe(1);
   })
@@ -28,7 +28,7 @@ describe('<Robot />', () => {
 
     
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>
+      <Robot lvl={0} difficult={"hard"}/>
     )
 
     //result.setProps({lvl: 1})
@@ -48,7 +48,7 @@ describe('<Robot />', () => {
     document.body.appendChild(button)
     
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>,
+      <Robot lvl={0} difficult={"hard"}/>,
       {attachTo: button}
     )
 
@@ -61,7 +61,7 @@ describe('<Robot />', () => {
 
   it('Test robot logic componentDidUpdate without questionLabel', () => {    
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>,
+      <Robot lvl={0} difficult={"hard"}/>,
     )
     expect(result.props().lvl).toBe(0);
     result.setProps({lvl: 1})
@@ -77,7 +77,7 @@ describe('<Robot />', () => {
     span.style.color = "red";
     document.body.appendChild(span)
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>,
+      <Robot lvl={0} difficult={"hard"}/>,
       {attachTo: span}
     )
 
@@ -97,7 +97,7 @@ describe('<Robot />', () => {
     }
     document.body.appendChild(button1)
     const result = Enzyme.mount(
-      <Robot lvl={0} dificult={"hard"}/>,
+      <Robot lvl={0} difficult={"hard"}/>,
       {attachTo: button1}
     )
 

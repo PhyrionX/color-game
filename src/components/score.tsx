@@ -1,8 +1,14 @@
 import * as React from "react";
-import {dificult} from "../tool";
+import {difficult} from "../tool";
 
+/**
+ * By Rubén Gabás
+ * score.tsx
+ * 
+ * This stateless component shown the score, answer and dificult
+ */
 export interface ScoreProps {
-  dificult: string;
+  difficult: string;
   score: number;
   answers: number;
   indexState: () => void;
@@ -13,7 +19,7 @@ export const Score: React.StatelessComponent<ScoreProps> = (props) => {
   return (
     <div className="scoreDiv">
       <div>
-        <span> Dificult: </span> {props.dificult} <br/>
+        <span> Difficult: </span> {props.difficult} <br/>
         <span> Your score: </span> {props.score} <br/>
         <span> Correct answers: </span> {props.answers}
       </div>
