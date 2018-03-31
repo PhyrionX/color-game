@@ -3,7 +3,7 @@ import {Stage} from "./stage";
 import {Robot} from "./robot";
 import {Instructions} from "./instructions";
 import {Score} from "./score";
-import {confApp} from "../tool";
+import {confApp, getScore} from "../tool";
 
 /**
  * By Rubén Gabás
@@ -70,7 +70,7 @@ export class Game extends React.Component<GameProps, GameState> {
    * 
    * This function controls that the event with the dataset.key is defined since 
    * it is the one that knows if the answer is correct or not, if it is correct, 
-   * 1000 for remaining time is added to score, plus one is added to answers and lvl.
+   * if if correct call the tool function getScore and plus answer and lvl
    * 
    * If the answer is not correct, only add one level and no score
    * @param e 
@@ -84,7 +84,7 @@ export class Game extends React.Component<GameProps, GameState> {
       let score = this.state.score;
       let answers = this.state.answers;
       if (e.target.dataset.key == "true") {
-        score += (1000 * time) / 1000;
+        score += getScore(this.props.difficult, time);
         answers += 1;
       }
       this.setState({lvl, score, answers})

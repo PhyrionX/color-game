@@ -7,7 +7,7 @@ This application is written in ReactJs, Typescript and Sass.
 You can play it [here](https://color-game-react.herokuapp.com).
 
 ## Requeriments
- - NodeJs v9.9.0
+ - NodeJS v9.9.0
  - Npm 5.6.0
 
 ## Setup
@@ -37,5 +37,14 @@ To launch unit and integration test with coverage
 $ npm test
 ```
 
-#Dependencies
+# Dependencies
 
+## ReactJS
+
+## Typescript
+
+## SASS
+
+## JEST
+
+## ENZYME
