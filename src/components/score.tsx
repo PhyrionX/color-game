@@ -19,9 +19,9 @@ export const Score: React.StatelessComponent<ScoreProps> = (props) => {
   return (
     <div className="scoreDiv">
       <div>
-        <span> Difficult: </span> {props.difficult} <br/>
-        <span> Your score: </span> {props.score} <br/>
-        <span> Correct answers: </span> {props.answers}
+        <span className="ti"> Difficult: </span> <span id="scoreDificult">{props.difficult}</span><br/>
+        <span className="ti"> Your score: </span> <span id="scoreScore"> {props.score}</span><br/>
+        <span className="ti"> Correct answers: </span>  <span id="scoreAnswers">{props.answers}</span>
       </div>
       <button id="returnMainButton" className="btn" onClick={props.indexState}>Back</button>
     </div>

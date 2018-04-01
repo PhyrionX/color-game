@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "e2e-setup": "./node_modules/protractor/bin/webdriver-manager update",
-    "test-functional": "./node_modules/protractor/bin/protractor test/functional/protractor.conf.js",
+    "test-e2e": "./node_modules/protractor/bin/protractor test/functional/protractor.conf.js",
     "test": "jest --coverage",
     "start": "webpack-dev-server --debug --devtool cheap-module-source-map --output-pathinfo --history-api-fallback --hot --inline --progress --colors --port 3000 --open",
     "build": "webpack -p --progress --colors"

@@ -86,13 +86,13 @@ const getButtons = (colorSelected, colorSecundary, colorArr) => {
   /* random to set order of good and bad button */
   if (result === 0) {
     return <div className="buttonsDiv">
-      <button className="solutionButton btn-resp" data-key="true" style={{backgroundColor: _.sample(colorArr)}}>{colorSelected}</button>
-      <button className="solutionButton btn-resp" data-key="false" style={{backgroundColor: _.sample(colorArr)}}>{colorSecundary}</button>
+      <button className="solutionButton btn-resp goodSolution" data-key="true" style={{backgroundColor: _.sample(colorArr)}}>{colorSelected}</button>
+      <button className="solutionButton btn-resp badSolution" data-key="false" style={{backgroundColor: _.sample(colorArr)}}>{colorSecundary}</button>
     </div>
   } else {
     return <div className="buttonsDiv">
-      <button className="solutionButton btn-resp" data-key="false" style={{backgroundColor: _.sample(colorArr)}}>{colorSecundary}</button>
-      <button className="solutionButton btn-resp" data-key="true" style={{backgroundColor: _.sample(colorArr)}}>{colorSelected}</button>
+      <button className="solutionButton btn-resp badSolution" data-key="false" style={{backgroundColor: _.sample(colorArr)}}>{colorSecundary}</button>
+      <button className="solutionButton btn-resp goodSolution" data-key="true" style={{backgroundColor: _.sample(colorArr)}}>{colorSelected}</button>
     </div>
   }
 }

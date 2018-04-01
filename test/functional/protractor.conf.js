@@ -5,5 +5,6 @@ exports.config = {
   },
   baseUrl: 'http://localhost:3000',
   framework: 'jasmine',
-  allScriptsTimeout: 10000
+  allScriptsTimeout: 60000,
+  DEFAULT_TIMEOUT_INTERVAL: 60000
 };
