@@ -60,6 +60,7 @@ body, html {
   }
 }
 
+
 /* instruction component */
 .instructionsDiv {
   font-size: 20px;
@@ -100,6 +101,8 @@ body, html {
   }
 }
 
+
+/* Style for each question */
 #stage {
   #questionLabel {
     font-size: 48px;
@@ -131,6 +134,20 @@ body, html {
 
   div {
     padding: 30px
+  }
+
+  progress::-webkit-progress-value { background: blue; }
+  progress::-moz-progress-bar { background: blue; }
+  progress {
+    color: #0063a6;
+    font-size: .6em;
+    line-height: 1.5em;
+    text-indent: .5em;
+    width: 15em;
+    height: 1.8em;
+    border: 1px solid #0063a6;
+    border-radius: 5px;
+    background: #fff;
   }
 }
 /* Main buttons */
