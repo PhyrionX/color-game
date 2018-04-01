@@ -22,15 +22,15 @@ export const MainMenu: React.StatelessComponent<MainMenuProps> = (props) => {
       <br />
       <span className="secondaryTitles">Choose difficulty:</span>  
       <div className="difficultChooser" onClick={props.choosedifficult}>
-        <div className={props.difficult == "easy" ? 'active' : ''} data-difficult="easy">easy</div>
-        <div className={props.difficult == "normal" ? 'active' : ''} data-difficult="normal">normal</div>
-        <div className={props.difficult == "hard" ? 'active' : ''} data-difficult="hard">hard</div>
+        <div id="selectEasy" className={props.difficult == "easy" ? 'active' : ''} data-difficult="easy">easy</div>
+        <div id="selectNormal" className={props.difficult == "normal" ? 'active' : ''} data-difficult="normal">normal</div>
+        <div id="selectHard" className={props.difficult == "hard" ? 'active' : ''} data-difficult="hard">hard</div>
       </div>
       <br/>
       <span className="secondaryTitles">Select mode:</span> 
       <br/>
-      <button className="btn" onClick={() => props.startGame(false)}>Human</button>
-      <button className="btn" onClick={() => props.startGame(true)}>Robot</button>
+      <button id="humanButton" className="btn" onClick={() => props.startGame(false)}>Human</button>
+      <button id="robotButton" className="btn" onClick={() => props.startGame(true)}>Robot</button>
     </div>
   )
 }

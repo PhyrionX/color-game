@@ -7,6 +7,9 @@ import {App} from '../src/components/app';
 import {Loading} from '../src/components/loading';
 import {MainMenu} from '../src/components/mainMenu';
 import {Game} from '../src/components/game';
+import {Instructions} from '../src/components/instructions';
+import {Stage} from '../src/components/stage';
+import {Score} from '../src/components/score';
 
 jest.useFakeTimers();
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
@@ -117,5 +120,86 @@ describe('<App />', () => {
     expect(wrapper.state().index).toBeTruthy();
     expect(wrapper.state().game).toBeFalsy();
     expect(wrapper.state().robot).toBeFalsy();
+  });
+
+  it('get two buttons of the child component', () => {
+    let wrapper: any;
+    wrapper = Enzyme.mount(<App />);
+    
+    jest.runAllTimers();
+
+     expect(wrapper.find("button").length).toBe(2);
+  });
+
+  it('Interacction with child main menu, if press human button', () => {
+    let wrapper: any;
+    wrapper = Enzyme.mount(<App />);
+    
+    jest.runAllTimers();
+
+    expect(wrapper.find(Instructions).length).toBe(0);
+    wrapper.find("button#humanButton").simulate('click');
+
+    expect(wrapper.state().robot).toBeFalsy()
+    expect(wrapper.state().game).toBeTruthy()
+    expect(wrapper.find(Instructions).length).toBe(1);
+  });
+
+  it('Interacction with child main menu, if press robot button', () => {
+    let wrapper: any;
+    wrapper = Enzyme.mount(<App />);
+    
+    jest.runAllTimers();
+
+    expect(wrapper.find(Instructions).length).toBe(0);
+    wrapper.find("button#robotButton").simulate('click');
+
+    expect(wrapper.state().robot).toBeTruthy()
+    expect(wrapper.state().game).toBeTruthy()
+    expect(wrapper.find(Instructions).length).toBe(1);
+
+  });
+
+  it('Interacction with child main menu, if press human button, and start game', () => {
+    let wrapper: any;
+    wrapper = Enzyme.mount(<App />);
+    
+    jest.runAllTimers();
+
+    expect(wrapper.find(Game).length).toBe(0);
+    expect(wrapper.find(Instructions).length).toBe(0);
+    wrapper.find("button#humanButton").simulate('click');
+
+    expect(wrapper.state().robot).toBeFalsy()
+    expect(wrapper.state().game).toBeTruthy()
+    expect(wrapper.find(Game).length).toBe(1);
+    expect(wrapper.find(Instructions).length).toBe(1);
+    expect(wrapper.find(Stage).length).toBe(0);
+
+    wrapper.find(Instructions).find('button#startGameButton').simulate("click");
+    expect(wrapper.find(Stage).length).toBe(1);
+    expect(wrapper.find('span#questionLabel').length).toBe(1);
+  });
+
+  it('Interacction with child main menu, if press robot button, and start game', () => {
+    let wrapper: any;
+    wrapper = Enzyme.mount(<App />);
+    
+    jest.runAllTimers();
+
+    expect(wrapper.find(Game).length).toBe(0);
+    expect(wrapper.find(Instructions).length).toBe(0);
+    wrapper.find("button#robotButton").simulate('click');
+
+    expect(wrapper.state().robot).toBeTruthy()
+    expect(wrapper.state().game).toBeTruthy()
+    expect(wrapper.find(Game).length).toBe(1);
+    expect(wrapper.find(Instructions).length).toBe(1);
+    expect(wrapper.find(Stage).length).toBe(0);
+
+    wrapper.find(Instructions).find('button#startGameButton').simulate("click");
+    
+    expect(wrapper.find(Stage).length).toBe(1);
+    expect(wrapper.find('span#questionLabel').length).toBe(1);
   });
 })

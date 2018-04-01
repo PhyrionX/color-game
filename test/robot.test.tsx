@@ -85,7 +85,7 @@ describe('<Robot />', () => {
 
     jest.runAllTimers();
     //expect(setTimeout).toHaveBeenCalledTimes(2);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any((Function)), 750);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any((Function)), 500);
   })
 
   it('Test robot logic componentDidUpdate with questionLabel and solutionButton', () => {    
@@ -105,7 +105,7 @@ describe('<Robot />', () => {
 
     jest.runAllTimers();
     //expect(setTimeout).toHaveBeenCalledTimes(2);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any((Function)), 750);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any((Function)), 500);
   })
 
 })
