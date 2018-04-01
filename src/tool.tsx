@@ -56,6 +56,8 @@ export function getScore (difficultT: string, time: number) {
  * @param difficultselected 
  */
 export function getQuestion(difficultselected: string) {
+  if (difficultselected != "easy" && difficultselected != "normal" && difficultselected != "hard") 
+    return null;
   /** create an array from the array of colors with the number of colors set by the difficulty */
   let colorTemp = _.take(colors, difficult[difficultselected].colors);
   /** Take a color random of array and set the correct color */

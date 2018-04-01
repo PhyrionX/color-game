@@ -77,7 +77,8 @@
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/lib/"
+      "/lib/",
+      "/test/functional"
     ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [

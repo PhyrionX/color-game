@@ -1,6 +1,7 @@
 # Color game react typescript
 
-Game color, here are ten screens, and on each screen, you are given a word and two buttons to choose from. Select the Color of the word, not the word!
+Game color, here are ten screens, and on each screen, you are given a word and two buttons to choose from. Select the Color of the word, not the word! 
+Max score is 10000, but is very difficult.
 
 This application is written in ReactJs, Typescript and Sass.
 
@@ -57,7 +58,7 @@ The application is written in React with typescript and Sass for style.
 To bundle the app use Webpack
 [Webpack](https://webpack.js.org/)
 ### Test
-#### Unit and integration tes
+#### Unit and integration test
 Use Jest and enzyme
 [Jest](https://facebook.github.io/jest/)
 [Enzyme](http://airbnb.io/enzyme/)
