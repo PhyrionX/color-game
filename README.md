@@ -37,14 +37,30 @@ To launch unit and integration test with coverage
 $ npm test
 ```
 
-# Dependencies
+## Functional tests
+To setup funtional test (download/update chrome driver)
+```
+$ npm run e2e-setup
+```
+To launch functional test, launch app with npm start before and then
+```
+$ npm test-e2e
+```
 
-## ReactJS
-
-## Typescript
-
-## SASS
-
-## JEST
-
-## ENZYME
+## Dependencies
+### Develop
+The application is written in React with typescript and Sass for style.
+[React](https://reactjs.org/)
+[Typescript](http://www.typescriptlang.org/)
+[Sass](https://sass-lang.com/)
+### Bundler
+To bundle the app use Webpack
+[Webpack](https://webpack.js.org/)
+### Test
+#### Unit and integration tes
+Use Jest and enzyme
+[Jest](https://facebook.github.io/jest/)
+[Enzyme](http://airbnb.io/enzyme/)
+### Funtional test
+Use Protractor (modifying to react)
+[Protractor](https://www.protractortest.org/#/)
