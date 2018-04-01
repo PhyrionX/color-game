@@ -21,7 +21,6 @@ describe('<App />', () => {
     expect(wrapper.find(MainMenu).length).toBe(1);
     expect(wrapper.find(MainMenu).length).toBe(1);
     jest.runAllTimers();
-    //console.log(wrapper.state())
   });
 
   it('start game with robot', () => {

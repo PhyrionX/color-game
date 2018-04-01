@@ -12,7 +12,7 @@ describe('<MainMenu />', () => {
     <MainMenu 
       difficult={"easy"} 
       index={true} 
-      startGame={(robot: boolean) => console.log("a")} 
+      startGame={(robot: boolean) => {}} 
       choosedifficult={(e: any) => {
 
     }}/>);
@@ -24,7 +24,7 @@ describe('<MainMenu />', () => {
     <MainMenu 
       difficult={"normal"} 
       index={true} 
-      startGame={(robot: boolean) => console.log("a")} 
+      startGame={(robot: boolean) => {}} 
       choosedifficult={(e: any) => {
       expect(wrapper).toBeTruthy();
     }}/>);

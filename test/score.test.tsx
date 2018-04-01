@@ -8,12 +8,12 @@ import {Score} from '../src/components/score';
 Enzyme.configure({ adapter: new ReactFifteenAdapter() })
 describe('<Score />', () => {
   it('renders without crashing', () => {
-    const wrapper = Enzyme.shallow(<Score difficult={"easy"} score={10000} answers={10} indexState={() => console.log("a")}/>);
+    const wrapper = Enzyme.shallow(<Score difficult={"easy"} score={10000} answers={10} indexState={() => {}}/>);
     expect(wrapper.find('div.scoreDiv').length).toBe(1);
   });
 
   it('Score props', () => {
-    const wrapper = Enzyme.mount(<Score difficult={"easy"} score={10000} answers={10} indexState={() => console.log("a")}/>);
+    const wrapper = Enzyme.mount(<Score difficult={"easy"} score={10000} answers={10} indexState={() => {}}/>);
     expect(wrapper.props().score).toBe(10000);
     expect(wrapper.props().difficult).toBe("easy");
     wrapper.setProps({difficult: "normal", score: 12000});

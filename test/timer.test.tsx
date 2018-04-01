@@ -55,11 +55,7 @@ describe('<Timer />', () => {
       
     }
     expect(wrapper.state().time).toBe(2000);
-    /*result.instance().componentWillUnmount();
 
-    console.log(result.state())
-
-    console.log(result.props().lvl)*/
   })
 
   it ('when componentWillReceiveProps and diferent lvl restart de time', () => {
